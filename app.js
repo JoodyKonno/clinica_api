@@ -20,6 +20,7 @@ const globals = {};
 
 globals.dbInstance = db;
 globals.db = {};
+globals.db.CheckinRulesModel = require('./models/CheckinRulesModel');
 
 globals.helpers = {};
 globals.helpers.hypermedia = require('./helpers/hypermedia');
@@ -47,8 +48,10 @@ app.use(new rateLimiter({
 }));
 
 const echoRoute = require('./routes/echo')(globals);
+const checkinRulesRoute = require('./routes/checkinRulesRoute')(globals);
 
 app.use(echoRoute);
+app.use(checkinRulesRoute);
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');

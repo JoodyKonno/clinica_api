@@ -4,6 +4,7 @@ var gulp = require('gulp'),
 gulp
   .task('mocha', async () => 
     gulp.src([
+      'tests/unit/*.js',
       'tests/routes/*.js',
     ])
     .pipe(mocha({
