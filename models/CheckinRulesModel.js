@@ -46,7 +46,10 @@ const remove = id => {
 
 };
 
+const list = () => listAll();
+
 module.exports = {
   save,
   remove,
+  list
 }

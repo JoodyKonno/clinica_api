@@ -78,4 +78,13 @@ describe('checkinRulesModel', () => {
         .and.to.have.length(1);
     })
   });
+
+  describe('list', () => {
+    it('should return a list of rules', () => {
+      const rules = checkinRulesModel.list();
+
+      expect(rules).to.be.an('array')
+        .and.to.have.length(2);
+    });
+  });
 })
