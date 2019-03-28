@@ -32,5 +32,19 @@ module.exports = (globals) => {
     }
   });
 
+  router.delete('/checkin/rules/:id', function (req, res) {
+    const response = globals.db.CheckinRulesModel.remove(req.params.id);
+
+    if (response) {
+      res
+        .status(204)
+        .json({});
+    } else {
+      res
+        .status(400)
+        .json({});
+    }
+  });
+
   return router; 
 }

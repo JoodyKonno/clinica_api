@@ -30,8 +30,11 @@ describe('Route /checkin/rules', () => {
   });
 
   describe('DELETE /checkin/rules/:id', () => {
-    xit('should delete a checkin rule', () => {
-
+    it('should delete a checkin rule', () => {
+      return request
+        .delete(`/checkin/rules/1`)
+        .set('content-type', 'application/json')
+        .expect(204);
     });
   });
 

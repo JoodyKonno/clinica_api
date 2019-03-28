@@ -29,6 +29,24 @@ const save = newModel => {
   }
 };
 
+const remove = id => {
+  const rules = listAll();
+
+  const filteredRules = rules.filter(rule => rule.id != id);
+
+  try {
+    jsonFile.writeFileSync(dbPath, filteredRules);
+
+    console.log(filteredRules)
+    return true;
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+
+};
+
 module.exports = {
   save,
+  remove,
 }
