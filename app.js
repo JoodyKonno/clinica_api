@@ -49,9 +49,11 @@ app.use(new rateLimiter({
 
 const echoRoute = require('./routes/echo')(globals);
 const checkinRulesRoute = require('./routes/checkinRulesRoute')(globals);
+const checkinAvailabilitiesRoute = require('./routes/checkinAvailabilitiesRoute')(globals);
 
 app.use(echoRoute);
 app.use(checkinRulesRoute);
+app.use(checkinAvailabilitiesRoute)
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');
