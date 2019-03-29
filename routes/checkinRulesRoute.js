@@ -6,6 +6,8 @@ module.exports = (globals) => {
   router.post('/checkin/rules', function (req, res) {
     const newRule = {
       type: req.body.type,
+      date: req.body.date,
+      weekday: req.body.weekday,
       intervals: req.body.intervals.map(interval => {
         return {
           start: interval.start,
@@ -56,6 +58,7 @@ module.exports = (globals) => {
           return {
             id: rule.id,
             type: rule.type,
+            weekday: rule.weekday,
             date: rule.date,
             intervals: rule.intervals.map(interval => {
               return {

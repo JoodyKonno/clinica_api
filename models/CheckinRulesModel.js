@@ -15,7 +15,7 @@ const save = newModel => {
   const rules = listAll();
   
   const newRequest = {
-    id: rules.length + 1,
+    id: moment().format() + 'Id' + (rules.length + 1),
     ...newModel
   }
   rules.push(newRequest);

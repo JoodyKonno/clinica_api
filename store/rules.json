@@ -1,1 +1,1 @@
-[{"id":2,"type":"custom","intervals":[{"start":"12:00","end":"13:00"},{"start":"14:00","end":"18:00"}]}]
+[{"id":"2019-03-29T13:50:54-03:00Id1","type":"daily","intervals":[{"start":"12:00","end":"14:00"},{"start":"14:00","end":"18:00"}]},{"id":"2019-03-29T13:51:07-03:00Id2","type":"weekly","weekday":1,"intervals":[{"start":"12:00","end":"14:00"},{"start":"14:00","end":"18:00"}]},{"id":"2019-03-29T13:51:32-03:00Id3","type":"custom","date":"25-04-2019","intervals":[{"start":"14:00","end":"15:00"},{"start":"20:00","end":"23:00"}]}]
