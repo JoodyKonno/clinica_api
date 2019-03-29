@@ -53,7 +53,7 @@ const listWeekly = () => listAll()
 
 const getWeekly = date => {
   const filteredRules = listWeekly()
-    .filter(rule => rule.weekday == moment(date).format('E'))
+    .filter(rule => rule.weekday == moment(date).format('E'));
 
   return filteredRules ? filteredRules[0] : {};
 };
@@ -70,7 +70,7 @@ const listCustom = () => listAll()
 
 const getCustom = date => {
   const filteredRules = listCustom()
-    .filter(rule => rule.date == date);
+    .filter(rule => rule.date == moment(date).format('DD-MM-YYYY'));
 
   return filteredRules ? filteredRules[0] : {};
 };
@@ -85,7 +85,7 @@ const listAvailabilities = (start, end) => {
   return Array(dateDiff + 1)
     .fill({})
     .reduce((availabilities, item, i) => {
-      const date = moment(start).add(i, 'days').format('DD-MM-YYYY');
+      const date = moment(start).add(i, 'days');
       
       let intervals = [];
       const daily = getDaily();
@@ -105,7 +105,7 @@ const listAvailabilities = (start, end) => {
       }
 
       availabilities.push({
-        date: date,
+        date: date.format('DD-MM-YYYY'),
         intervals: intervals,
       });
 

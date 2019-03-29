@@ -25,11 +25,33 @@ describe('checkinRulesModel', () => {
         date: '20-04-2019',
         intervals: [
           {
-            start: '9:00',
-            end: '12:00',
+            start: '18:00',
+            end: '20:00',
           }
         ]
-      }
+      },
+      {
+        id: 3,
+        type: 'weekly',
+        weekday: 7,
+        intervals: [
+          {
+            start: '15:00',
+            end: '16:00',
+          }
+        ]
+      },
+      {
+        id: 4,
+        type: 'weekly',
+        weekday: 1,
+        intervals: [
+          {
+            start: '16:00',
+            end: '17:00',
+          }
+        ]
+      },
     ];
     
     jsonfile.writeFileSync(storeRulesPath, preData);
@@ -57,9 +79,9 @@ describe('checkinRulesModel', () => {
       const result = jsonfile.readFileSync(storeRulesPath);
 
       expect(result).to.be.an('Array')
-        .and.to.have.length(3);
+        .and.to.have.length(5);
 
-      const lastRule = result[2];
+      const lastRule = result[4];
 
       expect(lastRule.id).to.not.be.undefined;
       expect(lastRule.type).to.be.equals('daily');
@@ -75,7 +97,7 @@ describe('checkinRulesModel', () => {
       const result = jsonfile.readFileSync(storeRulesPath);
 
       expect(result).to.be.an('Array')
-        .and.to.have.length(1);
+        .and.to.have.length(3);
     })
   });
 
@@ -84,7 +106,7 @@ describe('checkinRulesModel', () => {
       const rules = checkinRulesModel.list();
 
       expect(rules).to.be.an('array')
-        .and.to.have.length(2);
+        .and.to.have.length(4);
     });
   });
 
@@ -109,8 +131,8 @@ describe('checkinRulesModel', () => {
           date: '20-04-2019',
           intervals: [
             {
-              start: '9:00',
-              end: '12:00',
+              start: '18:00',
+              end: '20:00',
             }
           ],
         },
@@ -118,8 +140,8 @@ describe('checkinRulesModel', () => {
           date: '21-04-2019',
           intervals: [
             {
-              start: '9:00',
-              end: '10:00',
+              start: '15:00',
+              end: '16:00',
             }
           ],
         },
@@ -127,8 +149,8 @@ describe('checkinRulesModel', () => {
           date: '22-04-2019',
           intervals: [
             {
-              start: '9:00',
-              end: '10:00',
+              start: '16:00',
+              end: '17:00',
             }
           ],
         },
