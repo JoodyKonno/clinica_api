@@ -87,4 +87,52 @@ describe('checkinRulesModel', () => {
         .and.to.have.length(2);
     });
   });
+
+  describe('listAvailabities', () => {
+    it('should return all the available intervals', () => {
+      const availabilities = checkinRulesModel.listAvailabilities('2019-04-19', '2019-04-22');
+
+      expect(availabilities).to.be.an('array')
+        .and.to.have.length(4);
+
+      expect(availabilities).to.deep.equals([
+        {
+          date: '19-04-2019',
+          intervals: [
+            {
+              start: '9:00',
+              end: '10:00',
+            }
+          ],
+        },
+        {
+          date: '20-04-2019',
+          intervals: [
+            {
+              start: '9:00',
+              end: '12:00',
+            }
+          ],
+        },
+        {
+          date: '21-04-2019',
+          intervals: [
+            {
+              start: '9:00',
+              end: '10:00',
+            }
+          ],
+        },
+        {
+          date: '22-04-2019',
+          intervals: [
+            {
+              start: '9:00',
+              end: '10:00',
+            }
+          ],
+        },
+      ])
+    });
+  });
 })
